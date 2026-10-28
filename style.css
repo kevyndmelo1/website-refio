@@ -1,0 +1,718 @@
+/* =========================================================
+   ReFio — Estúdio de upcycling têxtil
+   Folha de estilo centralizada · layout editorial
+   Índice:
+   01. Tokens (Custom Properties)
+   02. Reset e base
+   03. Tipografia
+   04. O Fio Contínuo (linha guia)
+   05. Utilitários de revelação (scroll)
+   06. Marca e rodapés de navegação
+   07. Página 1 · Manifesto
+   08. Página 2 · O Ciclo
+   09. Página 3 · O Acervo
+   10. Responsivo e movimento reduzido
+   ========================================================= */
+
+/* 01. TOKENS ------------------------------------------------ */
+:root {
+  --algodao: #f2ede1;
+  --algodao-cru: #e8e0cc;
+  --clinico: #f6f7f4;
+  --preto: #0e0e0c;
+  --denim: #1f3a5f;
+  --denim-fundo: #1b3556;
+  --terra: #b8452a;
+
+  --bg: var(--algodao);
+  --fg: var(--preto);
+
+  --serif: "Fraunces", "Times New Roman", serif;
+  --sans: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+
+  --gutter: 14vw;          /* espaço reservado ao fio */
+  --margem: 5vw;
+  --ease: cubic-bezier(0.2, 0.7, 0.1, 1);
+}
+
+/* 02. RESET E BASE ----------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: clamp(1rem, 0.9rem + 0.35vw, 1.2rem);
+  line-height: 1.55;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+::selection { background: var(--terra); color: var(--algodao); }
+
+:focus-visible { outline: 2px solid var(--terra); outline-offset: 4px; }
+
+/* 03. TIPOGRAFIA ------------------------------------------- */
+.display {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-variation-settings: "opsz" 144;
+  line-height: 0.88;
+  letter-spacing: -0.035em;
+}
+
+.tech {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+
+.corpo {
+  font-family: var(--sans);
+  max-width: 34ch;
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.15rem);
+}
+
+.corpo + .corpo { margin-top: 1.2em; }
+
+.terra { color: var(--terra); }
+.denim { color: var(--denim); }
+
+/* 04. O FIO CONTÍNUO --------------------------------------- */
+.fio {
+  position: fixed;
+  top: 0;
+  left: 2vw;
+  width: 110px;
+  height: 100vh;
+  z-index: 50;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.fio path { fill: none; stroke-linecap: round; }
+
+.fio__guia {
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-dasharray: 2 7;
+  opacity: 0.25;
+}
+
+.fio__linha {
+  stroke: var(--terra);
+  stroke-width: 3;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+/* 05. REVELAÇÃO (SCROLL) ----------------------------------- */
+.linha {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+
+.linha > span { display: inline-block; }
+
+.js .linha > span {
+  transform: translateY(108%);
+  transition: transform 1.15s var(--ease);
+}
+
+.js .rv.in .linha > span { transform: none; }
+
+.js .rv.in .linha:nth-child(2) > span { transition-delay: 0.1s; }
+.js .rv.in .linha:nth-child(3) > span { transition-delay: 0.2s; }
+.js .rv.in .linha:nth-child(4) > span { transition-delay: 0.3s; }
+.js .rv.in .linha:nth-child(5) > span { transition-delay: 0.4s; }
+
+.js .fade {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 1s var(--ease), transform 1s var(--ease);
+  transition-delay: calc(var(--i, 0) * 0.3s);
+}
+
+.js .fade.in { opacity: 1; transform: none; }
+
+/* 06. MARCA E RODAPÉS DE NAVEGAÇÃO ------------------------- */
+.marca {
+  position: fixed;
+  top: 2.2vh;
+  right: var(--margem);
+  z-index: 60;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+  mix-blend-mode: difference;
+  color: #f2ede1;
+}
+
+.rodape-nav {
+  position: relative;
+  padding: 18vh var(--margem) 10vh var(--gutter);
+}
+
+.rodape-nav ul { display: flex; flex-direction: column; }
+
+.rodape-nav li:nth-child(2) { align-self: flex-end; }
+
+.link-gigante {
+  display: inline-block;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 15vw;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  transform-origin: left center;
+  transition: transform 0.7s var(--ease), color 0.4s, font-variation-settings 0.7s;
+  font-variation-settings: "opsz" 144;
+}
+
+.link-gigante small {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.6;
+  color: var(--terra);
+}
+
+.link-gigante:hover,
+.link-gigante:focus-visible {
+  font-style: italic;
+  font-weight: 600;
+  transform: scale(1.06, 0.94) skewX(-4deg);
+  color: var(--terra);
+}
+
+.rodape-nav__fim {
+  margin-top: 12vh;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  opacity: 0.6;
+}
+
+/* 07. PÁGINA 1 · MANIFESTO --------------------------------- */
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 14vh var(--margem) 7vh var(--gutter);
+}
+
+.hero__titulo {
+  font-size: 10.6vw;
+  font-weight: 400;
+}
+
+.hero__titulo .linha:nth-child(2) { padding-left: 6vw; }
+.hero__titulo .linha:nth-child(3) { font-style: italic; font-weight: 300; color: var(--denim); }
+.hero__titulo .linha:nth-child(4) { padding-left: 14vw; }
+.hero__titulo .linha:nth-child(5) { font-weight: 800; color: var(--terra); }
+
+.hero__rodape {
+  margin-top: 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.problema {
+  position: relative;
+  min-height: 150vh;
+  padding: 24vh var(--margem) 20vh var(--gutter);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-content: start;
+  row-gap: 16vh;
+}
+
+.problema__rotulo { grid-column: 1 / 8; }
+
+.dado { position: relative; }
+
+.dado--a { grid-column: 1 / 11; }
+.dado--b { grid-column: 4 / 13; text-align: right; }
+
+.dado__num {
+  display: block;
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 30vw;
+  line-height: 0.8;
+  letter-spacing: -0.07em;
+}
+
+.dado--b .dado__num { color: var(--terra); font-weight: 700; }
+
+.dado__texto {
+  display: block;
+  margin-top: 2.2vh;
+  margin-left: 6vw;
+  max-width: 22ch;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+}
+
+.dado--b .dado__texto { margin-left: auto; margin-right: 2vw; }
+
+.dado__texto b {
+  display: block;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 3.2vw;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.6rem;
+}
+
+.problema__fecho {
+  grid-column: 2 / 9;
+  font-family: var(--serif);
+  font-size: 3.4vw;
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.problema__fecho em { color: var(--terra); }
+
+/* Rodapé da página 1 permanece escuro */
+.escuro .rodape-nav { color: var(--algodao); }
+
+/* 08. PÁGINA 2 · O CICLO ----------------------------------- */
+.origem {
+  min-height: 100vh;
+  padding: 18vh var(--margem) 14vh var(--gutter);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-content: center;
+  row-gap: 8vh;
+}
+
+.origem__titulo {
+  grid-column: 1 / 13;
+  font-size: 21vw;
+  font-weight: 300;
+  color: var(--denim);
+}
+
+.origem__titulo .linha > span { padding-right: 0.1em; }
+
+.origem__texto { grid-column: 6 / 11; }
+
+.origem__nota {
+  grid-column: 1 / 5;
+  grid-row: 3;
+  align-self: start;
+  border-top: 1px solid var(--fg);
+  padding-top: 1rem;
+}
+
+.objecoes {
+  margin-top: 1.6rem;
+  display: grid;
+  gap: 1.2rem;
+}
+
+.objecoes b {
+  display: block;
+  font-family: var(--serif);
+  font-size: 4.4rem;
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--terra);
+}
+
+.limpeza {
+  background: var(--clinico);
+  padding: 18vh var(--margem) 18vh var(--gutter);
+  border-top: 1px solid var(--denim);
+  border-bottom: 1px solid var(--denim);
+  --fg: var(--preto);
+}
+
+.limpeza__cab {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 8vh;
+  color: var(--denim);
+}
+
+.passos { counter-reset: passo; }
+
+.passo {
+  display: grid;
+  grid-template-columns: 6vw 1fr auto;
+  align-items: baseline;
+  gap: 2vw;
+  padding: 3.5vh 0;
+  border-top: 1px solid rgba(31, 58, 95, 0.35);
+}
+
+.passo:last-child { border-bottom: 1px solid rgba(31, 58, 95, 0.35); }
+
+.passo__n { color: var(--denim); }
+
+.passo__nome {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 8.6vw;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.passo__seta {
+  font-size: 4vw;
+  color: var(--terra);
+  font-family: system-ui, sans-serif;
+}
+
+.passo:last-child .passo__seta { visibility: hidden; }
+
+.limpeza__rodape { margin-top: 6vh; max-width: 46ch; color: var(--denim); }
+
+.engenharia {
+  background: var(--denim-fundo);
+  color: var(--algodao);
+  --fg: var(--algodao);
+  padding: 20vh 0 0;
+  overflow: hidden;
+}
+
+.engenharia__faixa { overflow: hidden; padding: 0 0 6vh; }
+
+.atravessa {
+  display: block;
+  width: max-content;
+  white-space: nowrap;
+  font-size: 22vw;
+  font-weight: 300;
+  line-height: 0.92;
+  will-change: transform;
+}
+
+.atravessa--2 {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--algodao-cru);
+}
+
+.engenharia__corpo {
+  padding: 14vh var(--margem) 10vh var(--gutter);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  row-gap: 7vh;
+  column-gap: 2vw;
+}
+
+.engenharia__intro {
+  grid-column: 1 / 8;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 3.3vw;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.engenharia__intro em { color: #e9835f; }
+
+.etapa { border-top: 1px solid rgba(242, 237, 225, 0.5); padding-top: 1rem; }
+.etapa h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 2.2rem;
+  letter-spacing: -0.02em;
+  margin: 0.4rem 0 0.6rem;
+}
+
+.etapa--1 { grid-column: 1 / 5; }
+.etapa--2 { grid-column: 6 / 10; margin-top: 8vh; }
+.etapa--3 { grid-column: 9 / 13; margin-top: 2vh; }
+
+.engenharia .rodape-nav { padding-top: 6vh; }
+.engenharia .link-gigante { font-size: 9vw; }
+.engenharia .link-gigante:hover,
+.engenharia .link-gigante:focus-visible { color: #e9835f; }
+.engenharia .link-gigante small { color: #e9835f; }
+
+/* 09. PÁGINA 3 · O ACERVO ---------------------------------- */
+.acervo-intro {
+  padding: 22vh var(--margem) 8vh var(--gutter);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  row-gap: 3vh;
+}
+
+.acervo-intro__titulo {
+  grid-column: 1 / 13;
+  font-size: 7vw;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--denim);
+}
+
+.acervo-intro .corpo { grid-column: 8 / 13; }
+
+.galeria {
+  padding: 4vh var(--margem) 14vh var(--gutter);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: minmax(10vh, auto);
+  column-gap: 2vw;
+  row-gap: 5vh;
+}
+
+.peca { position: relative; }
+
+.peca__n {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--terra);
+}
+
+.peca__nome {
+  display: inline-block;
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 144;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  cursor: crosshair;
+  transition: color 0.35s, transform 0.6s var(--ease);
+  transform-origin: left bottom;
+}
+
+.peca__nome:hover,
+.peca__nome:focus-visible {
+  color: var(--terra);
+  font-style: italic;
+  transform: translateX(1.2vw) skewX(-3deg);
+  outline: none;
+}
+
+.peca--1 { grid-column: 2 / 12; grid-row: 1; }
+.peca--1 .peca__nome { font-size: 12.5vw; font-weight: 800; color: var(--denim); }
+
+.peca--2 { grid-column: 5 / 13; grid-row: 2; }
+.peca--2 .peca__nome { font-size: 9vw; font-weight: 300; }
+
+.peca--3 { grid-column: 1 / 9; grid-row: 3; margin-top: 6vh; }
+.peca--3 .peca__nome { font-size: 6.4vw; font-weight: 500; font-style: italic; }
+
+.peca--4 { grid-column: 3 / 13; grid-row: 4; }
+.peca--4 .peca__nome { font-size: 8.6vw; font-weight: 700; }
+.peca--4 .peca__nome span { color: var(--denim); }
+.peca--4 .peca__nome span + span { color: var(--terra); font-weight: 300; }
+
+.peca--5 { grid-column: 1 / 7; grid-row: 5; align-self: end; margin-top: 4vh; }
+.peca--5 .peca__nome { font-size: 5vw; font-weight: 400; }
+
+.acervo-nota {
+  grid-column: 8 / 13;
+  grid-row: 5;
+  align-self: end;
+  border-top: 1px solid var(--fg);
+  padding-top: 1rem;
+}
+
+/* Tooltip: caixa de texto crua que segue o cursor */
+.tip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  max-width: 30ch;
+  padding: 0.9rem 1rem;
+  background: var(--algodao-cru);
+  color: var(--preto);
+  border: 1px solid var(--preto);
+  border-radius: 0;
+  box-shadow: none;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.tip.on { opacity: 1; }
+.tip b { display: block; margin-bottom: 0.3rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.7rem; color: var(--terra); }
+
+.acervo .rodape-nav .link-gigante { font-size: 9vw; }
+
+/* 09b. COPY: CTA, SOLUÇÃO, DESCRIÇÕES E VALOR ------------- */
+.hero__sub { max-width: 34ch; font-size: clamp(1rem, 0.95rem + 0.4vw, 1.25rem); }
+
+.cta {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.6rem, 3vw, 3rem);
+  letter-spacing: -0.02em;
+  border-bottom: 2px solid var(--terra);
+  padding-bottom: 0.1em;
+  white-space: nowrap;
+  transition: color 0.3s, letter-spacing 0.5s var(--ease);
+}
+.cta:hover, .cta:focus-visible { color: var(--terra); letter-spacing: 0.01em; }
+
+.solucao {
+  padding: 8vh var(--margem) 14vh var(--gutter);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  row-gap: 8vh;
+  column-gap: 2vw;
+}
+.solucao__rotulo { grid-column: 1 / 8; }
+.solucao__nome { grid-column: 1 / 13; font-size: 26vw; font-weight: 300; line-height: 0.85; }
+.solucao__nome em { font-style: normal; font-weight: 800; color: var(--terra); }
+.solucao__sig { grid-column: 1 / 6; display: grid; gap: 2rem; align-content: start; }
+.solucao__sig > div { border-top: 1px solid currentColor; padding-top: 0.8rem; }
+.solucao__sig dd b {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 2.2rem;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.solucao__texto { grid-column: 7 / 13; margin-top: 6vh; }
+.solucao__pull {
+  grid-column: 3 / 12;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 3.4vw;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.solucao__pull em { color: var(--terra); }
+
+.passo__desc {
+  grid-column: 2 / 3;
+  max-width: 46ch;
+  font-size: 1rem;
+  color: var(--denim);
+}
+
+.acervo-intro__texto { grid-column: 8 / 13; }
+.acervo-intro__texto .corpo { grid-column: auto; }
+
+.valor {
+  background: var(--denim-fundo);
+  color: var(--algodao);
+  --fg: var(--algodao);
+  padding: 20vh var(--margem) 16vh var(--gutter);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  row-gap: 8vh;
+  column-gap: 2vw;
+}
+.valor__rotulo { grid-column: 1 / 8; color: #e9835f; }
+.valor__titulo { grid-column: 1 / 13; font-size: 8vw; font-weight: 300; }
+.valor__titulo em { color: #e9835f; font-weight: 600; }
+.valor__destaque { grid-column: 1 / 8; }
+.valor__num {
+  display: block;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 22vw;
+  line-height: 0.8;
+  letter-spacing: -0.07em;
+  color: #e9835f;
+  margin-bottom: 3vh;
+}
+.valor__fatores { grid-column: 8 / 13; align-self: end; }
+.valor__fatores li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(242, 237, 225, 0.5);
+}
+.valor__fatores b {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 2.6rem;
+  letter-spacing: -0.03em;
+}
+.valor__texto {
+  grid-column: 3 / 11;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 3.2vw;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+.valor__texto em { color: #e9835f; }
+.valor__fonte { grid-column: 1 / 13; opacity: 0.6; }
+
+/* 10. RESPONSIVO E MOVIMENTO REDUZIDO ---------------------- */
+@media (max-width: 760px) {
+  :root { --gutter: 17vw; --margem: 6vw; }
+  .fio { width: 70px; left: 1vw; }
+  .hero__titulo { font-size: 13.2vw; }
+  .dado__num { font-size: 40vw; }
+  .dado__texto b { font-size: 7vw; }
+  .problema__fecho { grid-column: 1 / 13; font-size: 7vw; }
+  .dado--a, .dado--b { grid-column: 1 / 13; }
+  .link-gigante { font-size: 19vw; }
+  .origem__texto, .origem__nota { grid-column: 1 / 13; grid-row: auto; }
+  .passo { grid-template-columns: 1fr; gap: 0.4rem; }
+  .passo__nome { font-size: 15vw; }
+  .passo__seta { display: none; }
+  .passo__desc { grid-column: 1 / -1; }
+  .solucao__nome { font-size: 36vw; }
+  .solucao__sig, .solucao__texto, .solucao__pull { grid-column: 1 / 13; }
+  .solucao__pull { font-size: 7vw; }
+  .acervo-intro__texto { grid-column: 1 / 13; }
+  .valor__titulo { font-size: 13vw; }
+  .valor__destaque, .valor__fatores, .valor__texto { grid-column: 1 / 13; }
+  .valor__num { font-size: 34vw; }
+  .valor__texto { font-size: 7vw; }
+  .hero__rodape { flex-direction: column; align-items: flex-start; }
+  .atravessa { font-size: 30vw; }
+  .engenharia__intro { grid-column: 1 / 13; font-size: 7vw; }
+  .etapa--1, .etapa--2, .etapa--3 { grid-column: 1 / 13; margin-top: 0; }
+  .engenharia .link-gigante, .acervo .rodape-nav .link-gigante { font-size: 14vw; }
+  .acervo-intro__titulo { font-size: 15vw; }
+  .acervo-intro .corpo { grid-column: 1 / 13; }
+  .peca--1, .peca--2, .peca--3, .peca--4, .peca--5, .acervo-nota { grid-column: 1 / 13; grid-row: auto; }
+  .peca--1 .peca__nome { font-size: 19vw; }
+  .peca--2 .peca__nome { font-size: 17vw; }
+  .peca--3 .peca__nome { font-size: 12vw; }
+  .peca--4 .peca__nome { font-size: 14vw; }
+  .peca--5 .peca__nome { font-size: 11vw; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .linha > span, .js .fade { transform: none; opacity: 1; transition: none; }
+  .link-gigante, .peca__nome { transition: none; }
+}

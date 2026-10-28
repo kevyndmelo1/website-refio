@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReFio — O Ciclo</title>
+  <meta name="description" content="Da coleta à triagem, da higienização ao trapilho: o processo da ReFio, sem costura e sem segredos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+
+  <a class="marca" href="index.html" aria-label="ReFio — início">ReFio</a>
+
+  <svg class="fio" viewBox="0 0 110 1000" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path class="fio__guia" d="M55 0 C5 120 105 220 55 340 S5 560 65 680 S105 860 55 1000"/>
+    <path class="fio__linha" pathLength="1" d="M55 0 C5 120 105 220 55 340 S5 560 65 680 S105 860 55 1000"/>
+  </svg>
+
+  <main>
+    <!-- BLOCO 1 · ORIGEM -->
+    <section class="origem" aria-labelledby="origem-titulo">
+      <h1 id="origem-titulo" class="display origem__titulo rv">
+        <span class="linha"><span>Origem</span></span>
+      </h1>
+
+      <div class="origem__texto fade">
+        <p class="corpo">Tudo começa em sobras limpas: retalhos da <strong>Liga Sports Uniformes</strong> e doações de quem tem tecido parado.</p>
+        <p class="corpo">Aqui, o descarte não é o fim da história. A ReFio pratica upcycling: atribuir nova função e valor ao que seria jogado fora.</p>
+      </div>
+
+      <aside class="origem__nota fade" style="--i:1" aria-label="Dúvidas do público">
+        <p class="tech">Duas dúvidas que ouvimos</p>
+        <div class="objecoes">
+          <p><b>46,8%</b><span class="tech">hesitam por higiene</span></p>
+          <p><b>58,1%</b><span class="tech">duvidam da durabilidade</span></p>
+        </div>
+        <p class="tech" style="margin-top:1.2rem">Por isso mostramos cada etapa do processo.</p>
+      </aside>
+    </section>
+
+    <!-- BLOCO 2 · HIGIENE E TRIAGEM -->
+    <section class="limpeza" aria-labelledby="limpeza-titulo">
+      <div class="limpeza__cab tech">
+        <h2 id="limpeza-titulo">02 — Higiene e triagem</h2>
+        <span>Protocolo em quatro etapas</span>
+      </div>
+
+      <ol class="passos">
+        <li class="passo fade" style="--i:0">
+          <span class="passo__n tech">01</span>
+          <span class="passo__nome">Lavagem profunda</span>
+          <span class="passo__seta" aria-hidden="true">➔</span>
+          <p class="passo__desc">Todo resíduo passa por higienização rigorosa. A primeira etapa é a lavagem.</p>
+        </li>
+        <li class="passo fade" style="--i:1">
+          <span class="passo__n tech">02</span>
+          <span class="passo__nome">Secagem</span>
+          <span class="passo__seta" aria-hidden="true">➔</span>
+          <p class="passo__desc">Segunda etapa da higienização: o tecido seca antes de seguir adiante.</p>
+        </li>
+        <li class="passo fade" style="--i:2">
+          <span class="passo__n tech">03</span>
+          <span class="passo__nome">Desinfecção</span>
+          <span class="passo__seta" aria-hidden="true">➔</span>
+          <p class="passo__desc">A etapa final da higienização. O material só avança depois dela.</p>
+        </li>
+        <li class="passo fade" style="--i:3">
+          <span class="passo__n tech">04</span>
+          <span class="passo__nome">Triagem</span>
+          <span class="passo__seta" aria-hidden="true">➔</span>
+          <p class="passo__desc">Separação por cor, espessura e composição. O rigor começa antes do primeiro ponto.</p>
+        </li>
+      </ol>
+
+      <p class="limpeza__rodape tech fade" style="--i:4">Higiene primeiro. Depois, o fio.</p>
+    </section>
+
+    <!-- BLOCO 3 · ENGENHARIA -->
+    <section class="engenharia" aria-labelledby="eng-titulo">
+      <h2 id="eng-titulo" class="display engenharia__faixa" style="margin:0">
+        <span class="atravessa" data-atravessa="1">Um fio contínuo.</span>
+        <span class="atravessa atravessa--2" data-atravessa="-1">Nenhuma costura.</span>
+      </h2>
+
+      <div class="engenharia__corpo">
+        <p class="engenharia__intro fade">O retalho vira <em>trapilho</em>: um fio de malha contínuo, unido por pequenos cortes e laçadas, sem costura.</p>
+
+        <article class="etapa etapa--1 fade">
+          <p class="tech">Etapa 01</p>
+          <h3>Corte em tiras</h3>
+          <p class="corpo">O tecido já higienizado e triado é cortado em tiras, à mão.</p>
+        </article>
+
+        <article class="etapa etapa--2 fade" style="--i:1">
+          <p class="tech">Etapa 02</p>
+          <h3>Pequenos cortes e laçadas</h3>
+          <p class="corpo">Uma tira se une à seguinte por pequenos cortes e laçadas. Sem agulha de costura, sem emenda aparente.</p>
+        </article>
+
+        <article class="etapa etapa--3 fade" style="--i:2">
+          <p class="tech">Etapa 03</p>
+          <h3>Novelo</h3>
+          <p class="corpo">O resultado é um novelo de fio de malha contínuo, pronto para o crochê.</p>
+        </article>
+      </div>
+
+      <footer class="rodape-nav">
+        <nav aria-label="Outras páginas">
+          <ul>
+            <li><a class="link-gigante" href="index.html"><small>← Voltar</small>Manifesto</a></li>
+            <li><a class="link-gigante" href="acervo.html"><small>Seguir →</small>O Acervo</a></li>
+          </ul>
+        </nav>
+      </footer>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReFio — O Acervo</title>
+  <meta name="description" content="Bolsas, ecobags, caixas organizadoras, acessórios e chaveiros em crochê de fio de malha, feitos à mão a partir de resíduos têxteis.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body class="acervo">
+
+  <a class="marca" href="index.html" aria-label="ReFio — início">ReFio</a>
+
+  <svg class="fio" viewBox="0 0 110 1000" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path class="fio__guia" d="M55 0 C5 120 105 220 55 340 S5 560 65 680 S105 860 55 1000"/>
+    <path class="fio__linha" pathLength="1" d="M55 0 C5 120 105 220 55 340 S5 560 65 680 S105 860 55 1000"/>
+  </svg>
+
+  <main>
+    <header class="acervo-intro">
+      <h1 class="display acervo-intro__titulo rv">
+        <span class="linha"><span>O Acervo</span></span>
+      </h1>
+      <div class="acervo-intro__texto fade">
+        <p class="corpo">Bolsas, ecobags, caixas organizadoras, acessórios e chaveiros: peças para o dia a dia, nascidas de resíduos têxteis.</p>
+        <p class="corpo">Cada uma é feita em crochê, com os pontos básicos (correntinha, ponto baixo e ponto alto) adaptados à espessura do fio de malha.</p>
+        <p class="tech" style="margin-top:1.4rem">Passe o cursor sobre uma peça para ver a técnica.</p>
+      </div>
+    </header>
+
+    <ul class="galeria" aria-label="Peças do acervo">
+      <li class="peca peca--1 fade">
+        <span class="peca__n tech">01</span>
+        <h2 class="peca__nome" tabindex="0" data-tecnica="Técnica: Fio de Malha (Trapilho). Pontos: Correntinha, Baixo, Alto.">Ecobags de Jeans</h2>
+      </li>
+
+      <li class="peca peca--2 fade">
+        <span class="peca__n tech">02</span>
+        <h2 class="peca__nome" tabindex="0" data-tecnica="Técnica: Fio de Malha (Trapilho). Pontos: Correntinha, Baixo, Alto.">Bolsas de Malha</h2>
+      </li>
+
+      <li class="peca peca--3 fade">
+        <span class="peca__n tech">03</span>
+        <h2 class="peca__nome" tabindex="0" data-tecnica="Técnica: Fio de Malha (Trapilho). Pontos: Correntinha, Baixo, Alto.">Suporte de Tapete de Yoga</h2>
+      </li>
+
+      <li class="peca peca--4 fade">
+        <span class="peca__n tech">04</span>
+        <h2 class="peca__nome" tabindex="0" data-tecnica="Técnica: Fio de Malha (Trapilho). Pontos: Correntinha, Baixo, Alto."><span>Caixas Organizadoras</span> <span>Bicolores</span></h2>
+      </li>
+
+      <li class="peca peca--5 fade">
+        <span class="peca__n tech">05</span>
+        <h2 class="peca__nome" tabindex="0" data-tecnica="Técnica: Fio de Malha (Trapilho). Pontos: Correntinha, Baixo, Alto.">Chaveiros Coração</h2>
+      </li>
+
+      <li class="acervo-nota tech fade">Do resíduo têxtil ao uso diário, ponto a ponto.</li>
+    </ul>
+
+    <!-- O VALOR DO FEITO À MÃO -->
+    <section class="valor" aria-labelledby="valor-titulo">
+      <h2 id="valor-titulo" class="tech valor__rotulo fade">O valor do feito à mão</h2>
+
+      <p class="display valor__titulo rv" aria-hidden="true">
+        <span class="linha"><span>Horas de mão,</span></span>
+        <span class="linha"><span><em>em cada ponto.</em></span></span>
+      </p>
+
+      <div class="valor__destaque fade" data-contar>
+        <span class="valor__num"><span data-alvo="84">84</span>,4%</span>
+        <p class="corpo">dos pesquisados disseram que saber que a peça exige horas de trabalho manual influencia positivamente a percepção sobre o seu valor.</p>
+      </div>
+
+      <ul class="valor__fatores" aria-label="O que motiva a compra, segundo a pesquisa">
+        <li class="fade"><span class="tech">Design e estética</span><b>59,7%</b></li>
+        <li class="fade" style="--i:1"><span class="tech">Trabalho artesanal e manual</span><b>51,6%</b></li>
+        <li class="fade" style="--i:2"><span class="tech">Preço acessível</span><b>43,5%</b></li>
+        <li class="fade" style="--i:3"><span class="tech">Sustentabilidade</span><b>41,9%</b></li>
+      </ul>
+
+      <p class="valor__texto fade">O design atrai o olhar. O trabalho manual explica o preço. Na ReFio, as duas coisas vêm do mesmo gesto: <em>um fio que ganhou nova vida, ponto a ponto</em>.</p>
+
+      <p class="valor__fonte tech fade">Fonte: pesquisa do projeto ReFio.</p>
+    </section>
+
+    <footer class="rodape-nav">
+      <nav aria-label="Outras páginas">
+        <ul>
+          <li><a class="link-gigante" href="index.html"><small>← Voltar</small>Manifesto</a></li>
+          <li><a class="link-gigante" href="processo.html"><small>Entenda →</small>O Ciclo</a></li>
+        </ul>
+      </nav>
+      <div class="rodape-nav__fim tech">
+        <span>ReFio © 2026</span>
+        <span>Feito à mão, fio a fio.</span>
+      </div>
+    </footer>
+  </main>
+
+  <div class="tip" id="tip" role="tooltip" aria-hidden="true">
+    <b>Feito à mão</b>
+    <span></span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

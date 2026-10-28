@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReFio — Manifesto</title>
+  <meta name="description" content="ReFio é um estúdio de upcycling que dá nova vida a resíduos têxteis e os devolve como peças artesanais de crochê.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body class="escuro">
+
+  <a class="marca" href="index.html" aria-label="ReFio — início">ReFio</a>
+
+  <!-- O Fio Contínuo -->
+  <svg class="fio" viewBox="0 0 110 1000" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path class="fio__guia" d="M55 0 C5 120 105 220 55 340 S5 560 65 680 S105 860 55 1000"/>
+    <path class="fio__linha" pathLength="1" d="M55 0 C5 120 105 220 55 340 S5 560 65 680 S105 860 55 1000"/>
+  </svg>
+
+  <main>
+    <!-- BLOCO 1 · HERO -->
+    <section class="hero" aria-labelledby="manifesto">
+      <h1 id="manifesto" class="display hero__titulo rv">
+        <span class="linha"><span>Transformar</span></span>
+        <span class="linha"><span>retalhos em</span></span>
+        <span class="linha"><span>possibilidades</span></span>
+        <span class="linha"><span>e ideias em</span></span>
+        <span class="linha"><span>realidade</span></span>
+      </h1>
+      <div class="hero__rodape fade">
+        <p class="hero__sub">A ReFio é um estúdio de upcycling que dá nova vida a resíduos têxteis e os devolve ao mundo como peças de crochê feitas à mão.</p>
+        <a class="cta" href="acervo.html">Conheça o Acervo <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- BLOCO 2 · O PROBLEMA -->
+    <section class="problema" id="problema" data-fundo aria-labelledby="problema-titulo">
+      <h2 id="problema-titulo" class="tech problema__rotulo fade">01 — O problema</h2>
+
+      <p class="dado dado--a fade" data-contar>
+        <span class="dado__num"><span data-alvo="92">92</span></span>
+        <span class="dado__texto tech"><b>milhões</b> de toneladas de resíduos têxteis por ano no mundo, segundo o UNEP.</span>
+      </p>
+
+      <p class="dado dado--b fade" data-contar>
+        <span class="dado__num"><span data-alvo="170">170</span></span>
+        <span class="dado__texto tech"><b>mil</b> toneladas por ano no Brasil, estimadas, frequentemente com descarte inadequado.</span>
+      </p>
+
+      <p class="problema__fecho fade">
+        Todo esse volume um dia foi tecido, corte, cor e intenção. Hoje, frequentemente, termina descartado de forma inadequada. O que o mundo deixa para trás <em>ainda pode ser fio</em>.
+      </p>
+    </section>
+
+    <!-- BLOCO 2.5 · A SOLUÇÃO -->
+    <section class="solucao" aria-labelledby="solucao-titulo">
+      <h2 id="solucao-titulo" class="tech solucao__rotulo fade">02 — A solução</h2>
+
+      <p class="display solucao__nome rv" aria-label="ReFio">
+        <span class="linha"><span>Re<em>Fio</em></span></span>
+      </p>
+
+      <dl class="solucao__sig">
+        <div class="fade">
+          <dt class="tech">Re</dt>
+          <dd><b>reutilização, renovação, reaproveitamento.</b></dd>
+        </div>
+        <div class="fade" style="--i:1">
+          <dt class="tech">Fio</dt>
+          <dd><b>a matéria-prima do têxtil e do crochê.</b></dd>
+        </div>
+      </dl>
+
+      <div class="solucao__texto fade">
+        <p class="corpo">O nome diz o método: retomar o fio e devolvê-lo ao uso. Na ReFio, resíduos têxteis são transformados em peças artesanais de crochê.</p>
+        <p class="corpo">É upcycling: atribuir nova função e valor a materiais que seriam descartados. Um modelo que associa criatividade, responsabilidade ambiental e valorização do trabalho artesanal, reduzindo resíduos e gerando renda.</p>
+      </div>
+
+      <p class="solucao__pull fade">Nosso propósito é dar nova vida ao que foi descartado, <em>gerando utilidade e valor agregado</em>.</p>
+    </section>
+
+    <!-- BLOCO 3 · NAVEGAÇÃO -->
+    <footer class="rodape-nav">
+      <nav aria-label="Principal">
+        <ul>
+          <li><a class="link-gigante" href="processo.html"><small>03 — Como fazemos</small>O Ciclo</a></li>
+          <li><a class="link-gigante" href="acervo.html"><small>04 — O que fazemos</small>O Acervo</a></li>
+        </ul>
+      </nav>
+      <div class="rodape-nav__fim tech">
+        <span>ReFio © 2026</span>
+        <span>Do retalho ao fio. Do fio à peça.</span>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
